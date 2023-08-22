@@ -17,6 +17,7 @@ use App\Http\Controllers\LoginController;
 
 Route::middleware('sessionAuthWeb')->prefix('/')->group(function () {
     Route::get('/', [LoginController::class, 'login_page'])->name('LoginPage');
+    Route::get('/home', [UserController::class, 'index'])->name('index');
     Route::post('login', [LoginController::class, 'login'])->name('LoginUser');
     Route::get('register-page', [UserController::class, 'get'])->name('UserRegister');
     Route::post('register', [UserController::class, 'store'])->name('Register');

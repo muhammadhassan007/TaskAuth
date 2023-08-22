@@ -14,6 +14,12 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 class UserController extends Controller
 {
 
+    public function index()
+    {
+        $users = User::select('name', 'email')->get();
+        return response()->json($users);
+    }
+
     public function get()
     {
         return view('users.create');
